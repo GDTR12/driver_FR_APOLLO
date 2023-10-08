@@ -1,0 +1,8 @@
+source;share/lslidar_c16_decoder/hook/cmake_prefix_path.ps1
+source;share/lslidar_c16_decoder/hook/cmake_prefix_path.dsv
+source;share/lslidar_c16_decoder/hook/cmake_prefix_path.sh
+source;share/lslidar_c16_decoder/local_setup.bash
+source;share/lslidar_c16_decoder/local_setup.dsv
+source;share/lslidar_c16_decoder/local_setup.ps1
+source;share/lslidar_c16_decoder/local_setup.sh
+source;share/lslidar_c16_decoder/local_setup.zsh

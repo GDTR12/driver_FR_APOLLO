@@ -1,0 +1,12 @@
+{
+  "package_name": "lslidar_c16_msg",
+  "non_idl_tuples": [
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:srv/LslidarC16Control.srv",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16Point.msg",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16Packet.msg",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16Scan.msg",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16Layer.msg",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16ScanUnified.msg",
+    "/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_msg:msg/LslidarC16Sweep.msg"
+  ]
+}

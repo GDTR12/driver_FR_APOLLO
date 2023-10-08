@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from lslidar_c16_msg/msg/LslidarC16Sweep.msg
+// generated code does not contain a copyright notice
+
+#include "lslidar_c16_msg/msg/LslidarC16Scan.idl"
+#include "std_msgs/msg/Header.idl"
+
+module lslidar_c16_msg {
+  module msg {
+    typedef lslidar_c16_msg::msg::LslidarC16Scan lslidar_c16_msg__msg__LslidarC16Scan;
+    typedef lslidar_c16_msg__msg__LslidarC16Scan lslidar_c16_msg__msg__LslidarC16Scan__16[16];
+    struct LslidarC16Sweep {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "The 0th scan is at the bottom")
+      lslidar_c16_msg__msg__LslidarC16Scan__16 scans;
+    };
+  };
+};

@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from lslidar_c16_msg/msg/LslidarC16ScanUnified.msg
+// generated code does not contain a copyright notice
+
+#include "lslidar_c16_msg/msg/LslidarC16Packet.idl"
+#include "std_msgs/msg/Header.idl"
+
+module lslidar_c16_msg {
+  module msg {
+    @verbatim (language="comment", text=
+      "lslidar C16 scan packets")
+    struct LslidarC16ScanUnified {
+      @verbatim (language="comment", text=
+        "standard ros message header")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "time to the top of hour")
+      uint64 basetime;
+
+      @verbatim (language="comment", text=
+        "vector of raw packets")
+      sequence<lslidar_c16_msg::msg::LslidarC16Packet> packets;
+    };
+  };
+};

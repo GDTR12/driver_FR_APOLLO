@@ -1,0 +1,7 @@
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:srv/LslidarC16Control.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16Point.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16Packet.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16Scan.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16Layer.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16ScanUnified.idl
+/root/slam/slam/driver_FR_APOLLO/build/lslidar_c16_msg/rosidl_adapter/lslidar_c16_msg:msg/LslidarC16Sweep.idl

@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from lslidar_c16_msg/srv/LslidarC16Control.srv
+// generated code does not contain a copyright notice
+
+
+module lslidar_c16_msg {
+  module srv {
+    struct LslidarC16Control_Request {
+      int32 laser_control;
+    };
+    struct LslidarC16Control_Response {
+      string status;
+    };
+  };
+};
