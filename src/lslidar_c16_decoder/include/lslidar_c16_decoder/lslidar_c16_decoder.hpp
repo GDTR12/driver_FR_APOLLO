@@ -49,7 +49,7 @@ namespace lslidar_c16_decoder {
         bool publish_scan;
         int scan_num;
         std::string scan_frame_id;
-        std::string pointcloud_topic;
+        std::string pointcloud_topic = "lslidar_point_cloud";
         size_t scan_nums;
         bool time_synchronization_;
 
@@ -72,10 +72,11 @@ namespace lslidar_c16_decoder {
 
         data_->loadConfigFile(node, private_nh);  // load lidar parameters
         private_nh->declare_parameter("model", model);
-
+        private_nh->get_parameter("model", model);
         // advertise output point cloud (before subscribing to input data)
 
         private_nh->declare_parameter("pointcloud_topic", pointcloud_topic); 
+        private_nh->get_parameter("pointcloud_topic", pointcloud_topic); 
         output_ = node->create_publisher<sensor_msgs::msg::PointCloud2>(pointcloud_topic, 10); 
         // output_ = node.advertise<sensor_msgs::msg::PointCloud2>(pointcloud_topic, 10);
         scan_pub = node->create_publisher<sensor_msgs::msg::LaserScan>("scan_topic", 10);
@@ -85,6 +86,12 @@ namespace lslidar_c16_decoder {
         packet_sub_ = node->create_subscription<lslidar_c16_msg::msg::LslidarC16ScanUnified>("lslidar_packet_c16", 10, std::bind(&Convert::processScan, this, std::placeholders::_1));
         // packet_sub_ = node.subscribe("lslidar_packet_c16", 10, &Convert::processScan, (Convert *) this,
         //                              ros::TransportHints().tcpNoDelay(true));
+
+        private_nh->declare_parameter("time_synchronization", time_synchronization_);
+        private_nh->declare_parameter("scan_num", scan_num);
+        private_nh->declare_parameter("publish_scan", publish_scan);
+        private_nh->declare_parameter("scan_frame_id", scan_frame_id);
+        private_nh->declare_parameter("frequency", frequency);
 
         private_nh->declare_parameter("time_synchronization", time_synchronization_);
         private_nh->declare_parameter("scan_num", scan_num);

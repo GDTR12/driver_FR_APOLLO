@@ -14,11 +14,11 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import GroupAction
 
 
-time_synchronization_value = False
+time_synchronization_value = "false"
 device_ip_value = "192.168.1.200"
-mosp_port_value = 2368
-difop_port_value = 2369
-return_mode_value = 1
+mosp_port_value = "2368"
+difop_port_value = "2369"
+return_mode_value = "1"
 
 
 def generate_launch_description():
@@ -68,42 +68,42 @@ def generate_launch_description():
             }
         ]
     )
-    """
-    frame_id = DeclareLaunchArgument("frame_id", default_value="laser_link")
-    device_ip = DeclareLaunchArgument("device_ip", default_value=device_ip_value)
+    
+    frame_id = DeclareLaunchArgument("frame_id_", default_value="laser_link")
+    device_ip = DeclareLaunchArgument("device_ip_", default_value=device_ip_value)
     model = DeclareLaunchArgument("model" , default_value="LSC16")
     rpm = DeclareLaunchArgument("rpm" , default_value="300.0")
     return_mode = DeclareLaunchArgument("return_mode" , default_value=return_mode_value)
     msop_port = DeclareLaunchArgument("msop_port" , default_value=mosp_port_value)
     difop_port = DeclareLaunchArgument("difop_port" , default_value=difop_port_value)
     add_multicast = DeclareLaunchArgument("add_multicast" , default_value="false")
-    group_ip = DeclareLaunchArgument("group_ip" , default_value="224.1.1.2")
+    group_ip = DeclareLaunchArgument("group_ip_" , default_value="224.1.1.2")
     time_synchronization = DeclareLaunchArgument("time_synchronization" , default_value=time_synchronization_value)
-    """
     node_driver = Node(
         package="lslidar_c16_driver",
         executable="lslidar_c16_driver_node",
         parameters=[
             {
-                "frame_id" : "laser_link",
-                "device_ip" : device_ip_value,
-                "model" : "LSC16",
-                "rpm" : 300.0,
-                "return_mode" : return_mode_value,
-                "msop_port" : mosp_port_value,
-                "difop_port" : difop_port_value,
-                "add_multicast" : False,
-                "group_ip" : "224.1.1.2",
-                "time_synchronization" : time_synchronization_value
+                "frame_id" : LaunchConfiguration("frame_id_"),
+                "device_ip" : LaunchConfiguration("device_ip_"),
+                "model" : LaunchConfiguration("model"),
+                "rpm" : LaunchConfiguration("rpm"),
+                "return_mode" : LaunchConfiguration("return_mode"),
+                "msop_port" : LaunchConfiguration("msop_port"),
+                "difop_port" : LaunchConfiguration("difop_port"),
+                "add_multicast" : LaunchConfiguration("add_multicast"),
+                "group_ip" : LaunchConfiguration("group_ip_"),
+                "time_synchronization" : LaunchConfiguration("time_synchronization")
             }
         ]
     )
-
+        # 使用 LogInfo 行动来显示多个参数的值
+   
 
     return ld(
         [
-            # frame_id,device_ip,model,rpm,return_mode,msop_port,difop_port,add_multicast,group_ip,time_synchronization,
-            
+            frame_id,device_ip,model,rpm,return_mode,msop_port,difop_port,add_multicast,group_ip,time_synchronization,
+            # frame_id, device_ip, group_ip,
             node_driver,
             # node_decoder
         ]

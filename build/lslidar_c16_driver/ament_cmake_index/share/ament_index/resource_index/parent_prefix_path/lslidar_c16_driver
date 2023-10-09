@@ -1,1 +1,1 @@
-/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_decoder:/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_driver:/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_decoder_node:/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_msg:/opt/ros/humble
+/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_driver:/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_decoder:/root/slam/slam/driver_FR_APOLLO/install/lslidar_c16_msg:/opt/ros/humble

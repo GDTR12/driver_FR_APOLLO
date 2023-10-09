@@ -1,0 +1,36 @@
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/include/lslidar_c16_driver/input.h:35[m[K,
+                 from [01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:19[m[K:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:[m[K In member function ‘[01m[Kvirtual int lslidar_c16_driver::InputSocket::getPacket(lslidar_c16_msg::msg::LslidarC16Packet*, double)[m[K’:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:222:52:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  222 |     RCLCPP_DEBUG(rclcpp::get_logger("InputSocket"),[01;35m[K"incomplete lslidar packet read: bytes"[m[K, nbytes);
+      |                                                    [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:[m[K In constructor ‘[01m[Klslidar_c16_driver::InputPCAP::InputPCAP(rclcpp::Node::SharedPtr, uint16_t, double, std::string, bool, bool, double)[m[K’:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:273:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kread_once[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  273 |                      [01;35m[Kbool read_once[m[K, bool read_fast, double repeat_delay)
+      |                      [01;35m[K~~~~~^~~~~~~~~[m[K
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:273:43:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kread_fast[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  273 |                      bool read_once, [01;35m[Kbool read_fast[m[K, double repeat_delay)
+      |                                      [01;35m[K~~~~~^~~~~~~~~[m[K
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:273:61:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Krepeat_delay[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  273 |                      bool read_once, bool read_fast, [01;35m[Kdouble repeat_delay[m[K)
+      |                                                      [01;35m[K~~~~~~~^~~~~~~~~~~~[m[K
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:[m[K In member function ‘[01m[Kvirtual int lslidar_c16_driver::InputPCAP::getPacket(lslidar_c16_msg::msg::LslidarC16Packet*, double)[m[K’:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:323:84:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktime_offset[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  323 | int InputPCAP::getPacket(lslidar_c16_msg::msg::LslidarC16Packet* pkt, [01;35m[Kconst double time_offset[m[K)
+      |                                                                       [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/src/input.cpp:19[m[K:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/include/lslidar_c16_driver/input.h:[m[K At global scope:
+[01m[K/root/slam/slam/driver_FR_APOLLO/src/lslidar_c16_driver/include/lslidar_c16_driver/input.h:50:21:[m[K [01;35m[Kwarning: [m[K‘[01m[Klslidar_c16_driver::DIFOP_DATA_PORT_NUMBER[m[K’ defined but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   50 |     static uint16_t [01;35m[KDIFOP_DATA_PORT_NUMBER[m[K = 2369;  // lslidar default difop data port on PC
+      |                     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K

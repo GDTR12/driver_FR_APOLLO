@@ -41,9 +41,30 @@ Input::Input(rclcpp::Node::SharedPtr private_nh, uint16_t port) : private_nh_(pr
   // private_nh->declare_parameter("add_multicast", add_multicast, false);
   // private_nh->declare_parameter("group_ip", group_ip, "224.1.1.2");
   // private_nh->declare_parameter("device_ip", devip_str_);
-  private_nh->get_parameter("device_ip", devip_str_);
-  private_nh->declare_parameter("add_multicast", add_multicast);
-  private_nh->declare_parameter("group_ip", group_ip);
+  if(!private_nh->has_parameter("device_ip")){
+    private_nh->declare_parameter("device_ip",devip_str_);
+  }
+
+  if(!private_nh->has_parameter("add_multicast")){
+    private_nh->declare_parameter("add_multicast",add_multicast);
+  }
+
+  if(!private_nh->has_parameter("group_ip")){
+    private_nh->declare_parameter("group_ip",group_ip);
+  }
+
+  try
+  {
+    private_nh->get_parameter("device_ip", devip_str_);
+    private_nh->get_parameter("add_multicast", add_multicast);
+    private_nh->get_parameter("group_ip", group_ip);
+  }
+  catch(const std::exception& e)
+  {
+  }
+
+  RCLCPP_INFO(rclcpp::get_logger("Input"), "device_ip: %s", devip_str_.c_str());
+  RCLCPP_INFO(rclcpp::get_logger("Input"), "group_ip: %s", group_ip.c_str());
   if (!devip_str_.empty())
     RCLCPP_INFO(rclcpp::get_logger("InputSocket"), "Only accepting packets from IP address: %s", devip_str_.c_str());
 }
@@ -273,6 +294,10 @@ InputPCAP::InputPCAP(rclcpp::Node::SharedPtr private_nh, uint16_t port, double p
   private_nh->declare_parameter("read_once", read_once_);
   private_nh->declare_parameter("read_fast", read_fast_);
   private_nh->declare_parameter("repeat_delay", repeat_delay_);
+
+  private_nh->get_parameter("read_once", read_once_);
+  private_nh->get_parameter("read_fast", read_fast_);
+  private_nh->get_parameter("repeat_delay", repeat_delay_);
   if (read_once_)
     RCLCPP_INFO(rclcpp::get_logger("InputSocket"),"Read input file only once.");
   if (read_fast_)

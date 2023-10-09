@@ -66,6 +66,13 @@ namespace lslidar_rawdata {
         private_nh->declare_parameter("scan_end_angle", scan_end_angle_);
         private_nh->declare_parameter("rpm", rpm_);
 
+        private_nh->get_parameter("start_angle", start_angle_);
+        private_nh->get_parameter("end_angle", end_angle_);
+        private_nh->get_parameter("distance_unit", distance_unit_);
+        private_nh->get_parameter("calibration_file", calibration_file_);
+        private_nh->get_parameter("scan_start_angle", scan_start_angle_);
+        private_nh->get_parameter("scan_end_angle", scan_end_angle_);
+        private_nh->get_parameter("rpm", rpm_);
         if (start_angle_ < 0 || start_angle_ > 360 || end_angle_ < 0 || end_angle_ > 360) {
             start_angle_ = 0;
             end_angle_ = 360;
@@ -95,6 +102,15 @@ namespace lslidar_rawdata {
         private_nh->declare_parameter("echo_second", echo_second_);
         private_nh->declare_parameter("coordinate_opt", coordinate_opt);
 
+        private_nh->get_parameter("max_range", max_distance_);
+        private_nh->get_parameter("min_range", min_distance_);
+        private_nh->get_parameter("return_mode", return_mode_);
+        private_nh->get_parameter("config_vert", config_vert_);
+        private_nh->get_parameter("print_vert", print_vert_);
+        private_nh->get_parameter("config_vert_file", config_vert_file_);
+        private_nh->get_parameter("degree_mode", degree_mode_);
+        private_nh->get_parameter("echo_second", echo_second_);
+        private_nh->get_parameter("coordinate_opt", coordinate_opt);
         RCLCPP_INFO(rclcpp::get_logger("rawdata"), "distance threshlod, max: %f , min: %f", max_distance_ , min_distance_);
 
         RCLCPP_INFO(rclcpp::get_logger("rawdata"),"return mode : %f", return_mode_);
@@ -109,6 +125,7 @@ namespace lslidar_rawdata {
         config_vert_angle = false;
 
         private_nh->declare_parameter("model", model);
+        private_nh->get_parameter("model", model);
         numOfLasers = 16;
         R1_ = 0.04319;   //calibration
         R2_ = 0.010875;

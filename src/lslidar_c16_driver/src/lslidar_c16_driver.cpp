@@ -31,8 +31,11 @@ namespace lslidar_c16_driver {
         // private_nh.param("frame_id", config_.frame_id, std::string("lslidar"));
         // private_nh.param("device_ip", device_ip_string, std::string("192.168.1.200"));
         private_nh->declare_parameter("frame_id", config_.frame_id);
-        private_nh->declare_parameter("device_ip", device_ip_string);
+        private_nh->get_parameter("frame_id", config_.frame_id);
 
+        private_nh->declare_parameter("device_ip", device_ip_string);
+        private_nh->get_parameter("device_ip", device_ip_string); 
+        RCLCPP_INFO(rclcpp::get_logger("Input"), "device_ip_string: %s", device_ip_string.c_str());
         // std::string tf_prefix = tf::getPrefixParam(private_nh);
         std::string tf_prefix = private_nh->get_namespace(); 
         RCLCPP_DEBUG(rclcpp::get_logger("lslidarDriver"), "tf_prefix: %s", tf_prefix.c_str());
@@ -41,13 +44,15 @@ namespace lslidar_c16_driver {
 
         // get model name, validate string, determine packet rate
         private_nh->declare_parameter("model", config_.model);
+        private_nh->get_parameter("model", config_.model);
         // private_nh.param("model", config_.model, std::string("LSC16"));
         double packet_rate;  // packet frequency (Hz)
 
         packet_rate = 840;   //20000/24
-
         private_nh->declare_parameter("rpm", config_.rpm);
         private_nh->declare_parameter("return_mode", config_.return_mode);
+        private_nh->get_parameter("rpm", config_.rpm);
+        private_nh->get_parameter("return_mode", config_.return_mode);
         // private_nh.param("rpm", config_.rpm, 300.0);
         // private_nh.param("return_mode", config_.return_mode, 1);
         double frequency = (config_.rpm / 60.0);  // expected Hz rate
@@ -56,18 +61,22 @@ namespace lslidar_c16_driver {
         // (fractions rounded up)
         int npackets = (int) ceil(packet_rate / frequency);
         private_nh->declare_parameter("npackets", config_.npackets);
+        private_nh->get_parameter("npackets", config_.npackets);
         // private_nh->declare_parameter("npackets", config_.npackets, npackets);
         RCLCPP_DEBUG(rclcpp::get_logger("lslidarDriver"), "publishing %d packets per scan", config_.npackets);
 
         std::string dump_file;
         private_nh->declare_parameter("pcap", dump_file);
+        private_nh->get_parameter("pcap", dump_file);
         // private_nh->declare_parameter("pcap", dump_file, std::string(""));
 
         int msop_udp_port;
         private_nh->declare_parameter("msop_port", msop_udp_port);
+        private_nh->get_parameter("msop_port", msop_udp_port);
         // private_nh->declare_parameter("msop_port", msop_udp_port, (int) MSOP_DATA_PORT_NUMBER);
         int difop_udp_port;
         private_nh->declare_parameter("difop_port", difop_udp_port);
+        private_nh->get_parameter("difop_port", difop_udp_port);
         // private_nh->declare_parameter("difop_port", difop_udp_port, (int) DIFOP_DATA_PORT_NUMBER);
 
         scan_start = lslidar_c16_msg::msg::LslidarC16ScanUnified();
@@ -87,13 +96,15 @@ namespace lslidar_c16_driver {
         }
 
         // raw packet output topic
-        std::string output_packets_topic;
+        std::string output_packets_topic = "lslidar_packet_c16";
         private_nh->declare_parameter("output_packets_topic", output_packets_topic);
+        private_nh->get_parameter("output_packets_topic", output_packets_topic);
         // private_nh->declare_parameter("output_packets_topic", output_packets_topic, std::string("lslidar_packet_c16"));
         // msop_output_ = node.advertise<lslidar_c16_msg::msg::LslidarC16ScanUnified>(output_packets_topic, 10);
-        msop_output_ = node->create_publisher<lslidar_c16_msg::msg::LslidarC16ScanUnified>(output_packets_topic, 10);
-        std::string output_difop_topic;
+        msop_output_ = node->create_publisher<lslidar_c16_msg::msg::LslidarC16ScanUnified>("lslidar_packet_c16", 10);
+        std::string output_difop_topic = "lslidar_packet_difop_c16";
         private_nh->declare_parameter("output_difop_topic", output_difop_topic);
+        private_nh->get_parameter("output_difop_topic", output_difop_topic);
         // private_nh->declare_parameter("output_difop_topic", output_difop_topic, std::string("lslidar_packet_difop_c16"));
 
         difop_output_ = node->create_publisher<lslidar_c16_msg::msg::LslidarC16Packet>(output_difop_topic, 10);
@@ -106,6 +117,7 @@ namespace lslidar_c16_driver {
                 new std::thread(std::bind(&lslidarDriver::difopPoll, this)));
 
         private_nh->declare_parameter("time_synchronization", time_synchronization_);
+        private_nh->get_parameter("time_synchronization", time_synchronization_);
         // private_nh->declare_parameter("time_synchronization", time_synchronization_, false);
 
 
