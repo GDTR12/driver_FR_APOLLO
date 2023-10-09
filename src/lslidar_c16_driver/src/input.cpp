@@ -210,6 +210,7 @@ int InputSocket::getPacket(lslidar_c16_msg::msg::LslidarC16Packet* pkt, const do
         return 1;
       }
     } while ((fds[0].revents & POLLIN) == 0);
+    printf("%d %d %d %d\r\n", sender_address.sin_addr, sender_address.sin_family, sender_address.sin_port, sender_address.sin_zero);
     ssize_t nbytes = recvfrom(sockfd_, &pkt->data[0], packet_size, 0, (sockaddr*)&sender_address, &sender_address_len);
 
     if (nbytes < 0)
